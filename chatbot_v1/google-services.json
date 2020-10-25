@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "395500889806",
+    "firebase_url": "https://chatbot-mis108.firebaseio.com",
+    "project_id": "chatbot-mis108",
+    "storage_bucket": "chatbot-mis108.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395500889806:android:dd57a30172ef098b",
+        "android_client_info": {
+          "package_name": "com.push.testapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395500889806-rqu3kcuolq05tc3tl42qupdqqjfd49te.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD60cQJaGlzTC8rfrxZ7KkTKs8htIWxYlw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

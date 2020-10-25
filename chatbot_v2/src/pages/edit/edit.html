@@ -1,0 +1,101 @@
+<ion-header>
+	<ion-navbar>
+<!-- 		<button ion-button (click)="backInfoPage()">
+	      <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+	    </button>  -->
+		<ion-title>個人資料修改</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<form #form="ngForm" (ngSubmit)="submitForm(form.value)">
+		<div style="text-align: center;">
+			<ion-list>
+				<ion-item class="item-content">
+					<ion-label fixed>帳號</ion-label>
+					<ion-input type="number" [(ngModel)]="info.account" name="account" disabled></ion-input>
+				</ion-item>
+
+				<ion-item class="item-content">
+					<ion-label fixed>密碼</ion-label>
+					<ion-input type="password" [(ngModel)]="info.password" name="password"></ion-input>
+				</ion-item>
+
+				<ion-item class="item-content">
+					<ion-label fixed>密碼驗證</ion-label>
+					<ion-input type="password" name="repassword" [(ngModel)]="repassword" reqiured></ion-input>
+				</ion-item>
+			</ion-list>
+		</div>
+		<div style="text-align: center;">
+			<ion-list>
+				<ion-item>
+					<ion-label fixed>姓名</ion-label>
+					<ion-input type="text" [(ngModel)]="info.name" name="name" ></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label fixed>小名</ion-label>
+					<ion-input type="text" [(ngModel)]="info.nickname" name="nickname" ></ion-input>
+				</ion-item>
+
+				<ion-item>
+				<ion-label fixed>性別</ion-label>
+					<ion-select [(ngModel)]="info.sexual" name="sexual">
+						<ion-option value="M">男生</ion-option>
+						<ion-option value="F">女生</ion-option>
+					</ion-select>
+				</ion-item>
+
+				<ion-item>
+					<ion-label fixed>生日</ion-label>
+					<ion-datetime displayFormat="YYYY/MM/DD" [(ngModel)]="info.birth" name="birth">
+					</ion-datetime>
+				</ion-item>
+
+				<ion-item>
+					<ion-label fixed>血型</ion-label>
+					<ion-select [(ngModel)]="info.blood" name="blood">
+						<ion-option value="O">O型</ion-option>
+						<ion-option value="A">A型</ion-option>
+						<ion-option value="B">B型</ion-option>
+						<ion-option value="AB">AB型</ion-option>
+					</ion-select>
+				</ion-item>
+
+				<ion-item>
+					<ion-label fixed>緊急聯絡人</ion-label>
+					<ion-input type="text" [(ngModel)]="info.emergePerson" name="emergePerson" reqiured></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label fixed>聯絡人電話</ion-label>
+					<ion-input type="number" [(ngModel)]="info.emergePhone" name="emergePhone" reqiured></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label fixed>簡單病史</ion-label>
+					<ion-input type="textarea" [(ngModel)]="info.sick" name="sick" reqiured></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label fixed>機器人</ion-label>
+					<ion-select [(ngModel)]="info.chatbot" name="robot" required>
+						<ion-option value="daughter">女兒</ion-option>
+						<ion-option value="son">兒子</ion-option>
+						<ion-option value="husband">老公</ion-option>
+						<ion-option value="wife">老婆</ion-option>
+						<ion-option value="friend">朋友</ion-option>
+					</ion-select>
+				</ion-item>
+			</ion-list>
+
+			<button ion-button icon-start (click)="backInfoPage()" type="button" class="btn-cancel">
+	  			<ion-icon name="close-circle"></ion-icon>取消
+			</button>
+			<button ion-button icon-start type="submit">
+				<ion-icon name="checkmark-circle"></ion-icon>確認
+			</button>
+		</div>
+	</form>
+</ion-content>

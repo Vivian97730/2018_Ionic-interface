@@ -1,0 +1,39 @@
+<ion-header>
+	<ion-toolbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>提醒設定</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+	<div style="text-align: center;">
+		<button ion-button icon-start type="submit" (click)="show_form()"><ion-icon name="md-add-circle"></ion-icon>新增</button>
+	</div>
+	
+	<div>
+		<ion-card *ngFor="let alarm of alarmList;">
+<!-- 			<ion-fab mini right>
+				<button ion-fab mini (click)="edit_form(alarm.key)"><ion-icon name="md-create" ></ion-icon></button>
+				<button ion-fab mini><ion-icon name="md-trash" (click)="deletealarm(alarm.key)"></ion-icon></button>
+			</ion-fab> -->
+			<ion-card-header>
+				{{ alarm.content }}
+			</ion-card-header>
+			<ion-card-content>
+				時間 : {{ alarm.time }}
+				<br>
+				循環 :{{ alarm.monday == 'true' ? " 星期一" : "" }} {{ alarm.tuesday == 'true' ? " 星期二" : "" }} {{alarm.wednesday == 'true' ? " 星期三" : ""}} {{alarm.thursday == 'true' ? " 星期四" : ""}} {{alarm.friday == 'true' ? " 星期五" : ""}} {{alarm.saturday == 'true' ? " 星期六" : ""}} {{alarm.sunday == 'true' ? " 星期日" : ""}} 
+			</ion-card-content>
+			<div align="right">
+				<button ion-button small clear icon-only (click)="edit_form(alarm.key)"><ion-icon name="md-create"></ion-icon></button> 
+				<button ion-button small clear icon-only (click)="deletealarm(alarm.key)"><ion-icon name="md-trash"></ion-icon></button> 
+			</div> 
+		</ion-card>
+		<button (click)="cancelAll()" ion-button color="danger" full>清除全部提醒</button>
+	</div>
+
+	
+</ion-content>

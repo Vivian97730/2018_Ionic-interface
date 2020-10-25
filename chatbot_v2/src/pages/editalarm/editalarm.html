@@ -1,0 +1,85 @@
+<!--
+  Generated template for the EditalarmPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>例行提醒修改</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<div>
+		<form>
+			<ion-list>
+				<ion-item item-center>
+				  <ion-label stacked>標題</ion-label>
+					<ion-input  [(ngModel)]="thing" name="thing" type="text" placeholder="吃藥、做復健..." required></ion-input>
+				</ion-item>
+
+				<ion-item item-center>
+					<ion-label stacked>時間設定</ion-label>	
+					<ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="time" name="time" (ionChange)="timeChange($event)" required></ion-datetime>
+        </ion-item>
+        <br>
+				<div>
+					
+					<ion-item >
+						<ion-label>{{days[0].title}}</ion-label>
+						<ion-checkbox [(ngModel)]="days[0].checked" color="primary" name="days[0].dayCode" 	></ion-checkbox>
+					</ion-item>
+
+					<ion-item >
+							<ion-label>{{days[1].title}}</ion-label>
+							<ion-checkbox [(ngModel)]="days[1].checked" color="primary" name="days[1].dayCode" 	></ion-checkbox>
+					</ion-item>
+
+					<ion-item >
+							<ion-label>{{days[2].title}}</ion-label>
+							<ion-checkbox [(ngModel)]="days[2].checked" color="primary" name="days[2].dayCode" 	></ion-checkbox>
+					</ion-item>
+						
+					<ion-item >
+							<ion-label>{{days[3].title}}</ion-label>
+							<ion-checkbox [(ngModel)]="days[3].checked" color="primary" name="days[3].dayCode" 	></ion-checkbox>
+					</ion-item>
+
+					<ion-item >
+							<ion-label>{{days[4].title}}</ion-label>
+							<ion-checkbox [(ngModel)]="days[4].checked" color="primary" name="days[4].dayCode" 	></ion-checkbox>
+					</ion-item>
+
+					<ion-item >
+							<ion-label>{{days[5].title}}</ion-label>
+							<ion-checkbox [(ngModel)]="days[5].checked" color="primary" name="days[5].dayCode" 	></ion-checkbox>
+					</ion-item>
+						
+					<ion-item >
+							<ion-label>{{days[6].title}}</ion-label>
+							<ion-checkbox [(ngModel)]="days[6].checked" color="primary" name="days[6].dayCode" 	></ion-checkbox>
+					</ion-item>
+				
+					<br>
+					<div style="text-align: center">
+						<button ion-button color="light" (click)="back()" class="btn-cancel">
+							<ion-icon name="close-circle"></ion-icon>取消
+            </button>            
+            <button *ngIf="new" type="submit" (click)="newAlarm()" ion-button>
+              <ion-icon name="checkmark-circle"></ion-icon>完成
+            </button>
+            <button *ngIf="edit" type="submit" (click)="editAlarm()" ion-button>
+              <ion-icon name="checkmark-circle"></ion-icon>完成
+            </button>
+                        
+					</div>
+				</div>
+			</ion-list>
+		</form>
+  </div>
+
+</ion-content>

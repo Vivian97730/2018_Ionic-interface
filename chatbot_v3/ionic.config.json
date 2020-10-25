@@ -1,0 +1,7 @@
+{
+  "name": "wtf",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

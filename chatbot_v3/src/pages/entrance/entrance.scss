@@ -1,0 +1,23 @@
+page-entrance {
+	.enter-btn{
+	position: relative;
+	top: 6%;
+	text-align: center;
+
+		.button{
+			color: black;
+			font-size: 3.2rem;
+			text-align: center;
+			background-color: $MENU-BACKGROUND;
+			color: white;
+			margin: 6%;
+			padding: 15%;
+			border-radius: 10px;
+		}
+	}
+	#hometitle .toolbar-title {
+		color : white;
+		font-size: 2.4rem;
+		text-align: center;
+	}
+}

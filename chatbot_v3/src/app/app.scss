@@ -1,0 +1,63 @@
+$NAVBAR-COLOR: #e2434b;
+$MENU-BACKGROUND: #23314B;
+$SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
+
+$SIDEMENU_TOP: #ff4b1f;
+$SIDEMENU_BOTTOM: #ff9068;
+
+.side-menu-gradient {
+	background: -webkit-linear-gradient(left top, $MENU-BACKGROUND, $MENU-BACKGROUND);
+	background: -o-linear-gradient(bottom right, $MENU-BACKGROUND, $MENU-BACKGROUND);
+	background: -moz-linear-gradient(bottom right, $MENU-BACKGROUND, $MENU-BACKGROUND);
+	background: linear-gradient(to bottom right, $MENU-BACKGROUND, $MENU-BACKGROUND);
+	border: none;
+}
+
+.bar-height {
+	position: absolute;
+  height: 80%;
+}
+
+.toolbar-background{
+	background-color: $NAVBAR-COLOR;
+} 
+.toolbar-title {
+  color : white;
+  font-size: 2.4rem;
+  text-align: left;
+}
+
+.menu-inner .item {
+  background-color: $MENU-BACKGROUND;
+	border: none;
+	color: white;
+	font-size: 2.4rem;
+}
+
+.bar-button-menutoggle-md ion-icon{
+	color: white;
+}
+
+.button{
+	background-color: $MENU-BACKGROUND;
+	color: white;
+}
+
+.btn-cancel{
+	background-color: white;
+	color: $MENU-BACKGROUND;
+
+}
+
+.fab{
+	background-color: $MENU-BACKGROUND;
+	color: white;
+}
+
+.ion-card-title{
+	position: relative;
+	font-size: 2.0rem;
+}
+.bar-button-default-ios{
+	color: white;
+}

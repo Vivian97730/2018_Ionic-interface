@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <!-- <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+   <!--  <button ion-button (click)="backHome()">
+      <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+    </button>  -->
+    <ion-title>登入</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding center>
+  <div style="text-align: center">
+    <form #form="ngForm" (ngSubmit)="login(form.value)"> 
+      <ion-list>
+        <ion-item no-lines></ion-item>
+        <ion-item>
+          <ion-label style="font-size: 2.0rem;" floating>帳號</ion-label>
+          <ion-input style="font-size: 2.0rem;" type="text" [(ngModel)]="login_info.account" name="account"></ion-input>
+        </ion-item>
+        <ion-item no-lines></ion-item>
+        <ion-item item-center>
+          <ion-label style="font-size: 2.0rem;" floating>密碼</ion-label>
+          <ion-input style="font-size: 2.0rem;" type="password" [(ngModel)]="login_info.password" name="password"></ion-input>
+        </ion-item>
+        <ion-item></ion-item>
+      </ion-list>
+      <button ion-button icon-start type="submit" class="submit-btn">
+        <ion-icon name="md-log-in"></ion-icon>登入
+      </button>
+    </form>
+  </div>
+	
+</ion-content>

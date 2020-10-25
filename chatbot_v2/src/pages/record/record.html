@@ -1,0 +1,49 @@
+<ion-header> 
+	<ion-toolbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>身體狀況紀錄</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+	<div style="text-align: center">
+		<button ion-button icon-start (click)="add()"><ion-icon name="md-add-circle" type="button"></ion-icon>新增紀錄</button>
+	</div>
+	<!-- 月份下拉選單 -->
+	<ion-list>
+		<ion-item style="color: black; font-size: 2.0rem;">
+			<ion-label>月份</ion-label>
+			<ion-select [(ngModel)]="month">
+			<ion-option value="1">1月</ion-option>
+			<ion-option value="2">2月</ion-option>
+			<ion-option value="3">3月</ion-option>
+			<ion-option value="4">4月</ion-option>
+			<ion-option value="5">5月</ion-option>
+			<ion-option value="6">6月</ion-option>
+			<ion-option value="7">7月</ion-option>
+			<ion-option value="8">8月</ion-option>
+			<ion-option value="9">9月</ion-option>
+			<ion-option value="10">10月</ion-option>
+			<ion-option value="11">11月</ion-option>
+			<ion-option value="12">12月</ion-option>
+			</ion-select>
+		</ion-item>
+	</ion-list>
+
+<!-- 紀錄顯示 -->
+	<ion-card *ngFor="let record of recordList;let i = index;"> 
+	  <ion-card-header style="font-size: 2.0rem;"> 
+	   {{ record.time | date:'yyyy/MM/dd HH:mm' }}  
+	  </ion-card-header> 
+	  <ion-card-content style="font-size: 3.0rem;"> 
+	   {{ record.content }} 
+	  </ion-card-content> 
+	  <div align="right">
+	   <button ion-button small clear icon-only (click)="editRecord(i)"><ion-icon name="md-create"></ion-icon></button> 
+	     <button ion-button small clear icon-only (click)="delete(i)"><ion-icon name="md-trash"></ion-icon></button> 
+	  </div> 
+ </ion-card>
+</ion-content>

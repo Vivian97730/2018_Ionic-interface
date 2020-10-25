@@ -1,0 +1,55 @@
+<ion-header> 
+	<ion-toolbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>個人資料</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+	<div class="info">
+		<ion-list>
+			<ion-item *ngFor="let info of info" class="item">
+				<ion-grid>
+					<ion-row>
+						<ion-col col-12 style="font-size: 1.5em;text-align: center">{{ info.name }}</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-12 style="text-align: center">
+								<ion-fab mini right bottom>
+										<button ion-fab mini (click)="choose()"><ion-icon name="md-create" ></ion-icon></button>
+								</ion-fab>
+							<img [src]="imgSrc"></ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-5>生日</ion-col>
+						<ion-col col-7>{{ info.birth }}</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-5>血型</ion-col>
+						<ion-col col-7>{{ info.blood }}</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-5>緊急聯絡人</ion-col>
+						<ion-col col-7>{{ info.emergePerson }}</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-5>緊急聯絡電話</ion-col>
+						<ion-col col-7>{{ info.emergePhone }}</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-5>簡單病史</ion-col>
+						<ion-col col-7>{{ info.sick }}</ion-col>
+					</ion-row>
+				</ion-grid>
+				<ion-item text-center>
+					<button ion-button (click)="edit()" icon-start class="edit-button">
+						<ion-icon name="md-create"></ion-icon>修改資料
+					</button>
+				</ion-item>
+			</ion-item>
+		</ion-list>
+	</div>
+</ion-content>

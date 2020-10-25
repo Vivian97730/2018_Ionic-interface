@@ -1,0 +1,26 @@
+page-info {
+	/*文字置左*/
+	ion-row ion-col{
+		text-align: left;
+	}
+	.info{
+		.edit-button{
+			position: relative;
+			font-size: 1.8rem;
+			border-radius: 10px;
+			height: 8%;
+		  width: 90%;
+		  padding: 5%;
+		}
+		.col{
+			/*background: gray;*/
+			border-bottom: groove;
+			color: gray;
+		}
+	}
+
+	.fab{
+		background-color: $NAVBAR-COLOR;
+		color: white;
+	}
+}

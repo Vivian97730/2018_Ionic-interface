@@ -1,0 +1,181 @@
+<ion-header>
+  <ion-navbar>
+		<button ion-button icon-only (click)="backHome()">
+			<ion-icon name="home"></ion-icon>
+		</button>
+		<ion-title>會員註冊</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<form #form="ngForm" (ngSubmit)="insertMember(form.value)">
+	 <div *ngIf="step1" style="text-align: center">
+	 	<div class="h1 title">第一步</div>
+		<ion-list>
+	    <ion-item item-center>
+	      <ion-label stacked>帳號（手機號碼）</ion-label>
+				<ion-input  type="number" placeholder="請輸入手機號碼共10碼" [(ngModel)]="info.account" required name="account"></ion-input>
+	    </ion-item>
+
+	    <ion-item item-center>
+	      <ion-label stacked>密碼</ion-label>
+	      <ion-input  type="password"  placeholder="至少8碼" [(ngModel)]="info.password" required="required" name="password"></ion-input>
+			</ion-item>
+
+			<ion-item item-center>
+	      <ion-label stacked>密碼驗證</ion-label>
+	      <ion-input type="password" placeholder="再輸入一次密碼" [(ngModel)]="repassword" required="required" name="password"></ion-input>
+	    </ion-item>
+		 </ion-list>
+
+  		<button ion-button icon-end full (click)="goStep2()" id="next_btn2">
+				下一步<ion-icon name="arrow-dropright"></ion-icon>
+			</button>
+ 	</div>
+
+  <div *ngIf="step2" style="text-align: center">
+  	<div class="h1 title">第二步</div>
+		<ion-list>
+	    <ion-item item-center>
+	      <ion-label stacked>姓名</ion-label>
+	      <ion-input type="text" [(ngModel)]="info.name"  required="required" name="name"></ion-input>
+	    </ion-item>
+
+	    <ion-item item-center>
+	      <ion-label stacked>小名</ion-label>
+	      <ion-input type="text" [(ngModel)]="info.nickname" required="required" name="nickname"></ion-input>
+			</ion-item>
+			
+			<ion-item item-center>
+				<ion-label stacked>性別</ion-label>
+					<ion-select [(ngModel)]="info.sexual" name="sexual">
+						<ion-option value="M">男生</ion-option>
+						<ion-option value="F">女生</ion-option>
+					</ion-select>
+			</ion-item>
+
+	    <button ion-button icon-start (click)="backStep1()" id="back_btn1" color="light">
+	    	<ion-icon name="arrow-dropleft"></ion-icon>上一步
+			</button>
+  		<button ion-button icon-end (click)="goStep3()" id="next_btn3">
+				下一步<ion-icon name="arrow-dropright"></ion-icon>
+			</button>
+	  </ion-list>
+ 	</div>
+
+	<div *ngIf="step3" style="text-align: center">
+		<div class="h1 title">第三步</div>
+		<ion-list>
+	    <!-- <ion-item item-center>
+				<ion-label stacked>生日</ion-label>
+				<ion-item>
+					<ion-label>Date</ion-label>
+					<ion-datetime displayFormat="MM/YYYY" pickerFormat="MMMM YYYY"></ion-datetime>
+				</ion-item>
+	      <ion-input type="text" placeholder="85/11/11" [(ngModel)]="info.birth" required="required" name="birth"></ion-input>
+	    </ion-item> -->
+			<ion-item item-center>
+					<ion-label stacked>生日</ion-label>
+						<ion-datetime displayFormat="YYYY/MM/DD" [(ngModel)]="info.birth" name="birth">
+					</ion-datetime>
+				</ion-item>
+
+			<ion-item item-center>
+					<ion-label stacked>血型</ion-label>
+						<ion-select [(ngModel)]="info.blood" name="blood">
+							<ion-option value="O">O型</ion-option>
+							<ion-option value="A">A型</ion-option>
+							<ion-option value="B">B型</ion-option>
+							<ion-option value="AB">AB型</ion-option>
+						</ion-select>
+				</ion-item>
+			
+	    <button ion-button icon-start (click)="backStep2()" id="back_btn2" color="light">
+	    	<ion-icon name="arrow-dropleft"></ion-icon>上一步
+			</button>
+  		<button ion-button icon-end (click)="goStep4()" id="next_btn4">
+				下一步
+				<ion-icon name="arrow-dropright"></ion-icon>
+			</button>
+	  </ion-list>
+ 	</div>
+
+ 	<div *ngIf="step4" style="text-align: center">
+ 		<div class="h1 title">第四步</div>
+		<ion-list>
+	    <ion-item item-center>
+	      <ion-label stacked>緊急聯絡人姓名</ion-label>
+	      <ion-input type="text"  [(ngModel)]="info.emergePerson"  required="required" name="emergePerson"></ion-input>
+	    </ion-item>
+
+	    <ion-item item-center>
+	      <ion-label stacked>緊急聯絡人電話</ion-label>
+	      <ion-input type="number" [(ngModel)]="info.emergePhone" required="required" name="emergePhone"></ion-input>
+	    </ion-item>
+	    <button ion-button icon-start (click)="backStep3()" id="back_btn3" color="light">
+				<ion-icon name="arrow-dropleft"></ion-icon>上一步
+			</button>
+  		<button ion-button icon-end (click)="goStep5()" id="next_btn5">
+				下一步<ion-icon name="arrow-dropright"></ion-icon>
+			</button>
+	  </ion-list>
+ 	</div>
+
+ 	<div *ngIf="step5" style="text-align: center">
+ 		<div class="h1 title">第五步</div>
+		<ion-list>
+	    <ion-item item-center>
+	      <ion-label stacked>簡單病史</ion-label>
+	      <ion-input type="textarea" placeholder="請在此簡略輸入....若沒有請填’無‘" [(ngModel)]="info.sick"  required="required" name="sick"></ion-input>
+	    </ion-item>
+
+	    <button ion-button icon-start (click)="backStep4()" id="back_btn4" color="light">
+				<ion-icon name="arrow-dropleft"></ion-icon>上一步
+			</button>
+  		<button ion-button icon-end (click)="goStep6()" id="next_btn6">
+				下一步<ion-icon name="arrow-dropright"></ion-icon>
+			</button>
+	  </ion-list>
+ 	</div>
+
+ 	<div *ngIf="step6" style="text-align: center">
+ 		<div class="h1 title">第六步</div>
+	      <ion-list radio-group [(ngModel)]="info.chatbot" name="chatbot">
+				  <ion-list-header>機器人角色</ion-list-header>
+
+				  <ion-item>
+				    <ion-label>女兒</ion-label>
+				    <ion-radio checked="true" value="daughter"></ion-radio>
+				  </ion-item>
+
+				  <ion-item>
+				    <ion-label>兒子</ion-label>
+				    <ion-radio value="son"></ion-radio>
+				  </ion-item>
+
+				  <ion-item>
+				    <ion-label>老公</ion-label>
+				    <ion-radio value="husband"></ion-radio>
+				  </ion-item>
+
+				  <ion-item>
+				    <ion-label>老婆</ion-label>
+				    <ion-radio value="wife"></ion-radio>
+				  </ion-item>
+
+				  <ion-item>
+				    <ion-label>朋友</ion-label>
+				    <ion-radio value="friend"></ion-radio>
+				  </ion-item>
+				</ion-list>
+	    
+	    <button ion-button icon-start (click)="backStep5()" id="back_btn4" color="light">
+				<ion-icon name="arrow-dropleft"></ion-icon>上一步
+			</button>
+  		<button type="submit" ion-button icon-end (click)="end()" id="next_btn_end">
+				完成<ion-icon name="checkmark-circle"></ion-icon>
+			</button>
+	 </div>
+	</form>
+</ion-content>

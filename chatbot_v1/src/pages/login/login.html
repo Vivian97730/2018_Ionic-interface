@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <!-- <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+    <button ion-button (click)="backHome()">
+      <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+    </button> 
+    <ion-title>登入</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding center>
+  <div style="text-align: center">
+    <form #form="ngForm" (ngSubmit)="login(form.value)"> 
+      <ion-list>
+        <ion-item>
+          <ion-label floating>電話號碼</ion-label>
+          <ion-input type="text" [(ngModel)]="login_info.account" name="account"></ion-input>
+        </ion-item>
+        <ion-item item-center>
+          <ion-label floating>身分證字號</ion-label>
+          <ion-input type="password" [(ngModel)]="login_info.password" name="password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <button ion-button round large type="submit">登入</button>
+    </form>
+  </div>
+	
+</ion-content>

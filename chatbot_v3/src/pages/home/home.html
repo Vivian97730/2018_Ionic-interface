@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>HOME</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <div class="button-div"> 
+    <button ion-button icon-start (click)="goInfo()">
+      <ion-icon name="md-person"></ion-icon>個人資料
+    </button>
+    <button ion-button icon-start (click)="goRecord()">
+      <ion-icon name="md-pulse"></ion-icon>身體紀錄
+    </button><br>
+     <button ion-button icon-start (click)="goChat()">
+      <ion-icon name="ios-chatbubbles"></ion-icon>聊天室
+    </button>
+     <button ion-button icon-start (click)="goAlarm()">
+      <ion-icon name="md-alarm"></ion-icon>提醒
+    </button><br>
+    <!-- <button ion-button icon-start (click)="signup_link()">
+      <ion-icon name="md-log-out"></ion-icon>登出
+    </button> -->
+  </div>
+ 
+</ion-content>

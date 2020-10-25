@@ -1,0 +1,104 @@
+<ion-header> 
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>個人資料紀錄</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+		<ion-item *ngFor="let info of info" class="item">
+			<ion-grid>
+				<ion-row>
+					<ion-col col-4>{{ info.name }}</ion-col>
+					<ion-col col-8><img [src]="imgSrc"><br>
+						<button ion-button round item-right (click)="takePhoto()">
+							<ion-icon name="md-images"></ion-icon>修改相片
+						</button>
+					</ion-col>
+				</ion-row>
+				<button *ngIf="!detail_btn" ion-button block (click)="show()">
+					<ion-icon name="md-arrow-dropdown-circle"></ion-icon>詳細資料
+				</button>
+			</ion-grid>
+			<!-- 按“下“按鈕可以顯示完整個人資料 -->
+			<div *ngIf="detail">
+				<ion-grid>
+					<ion-row>
+						<ion-col col-4>生日</ion-col>
+						<ion-col col-8>{{ info.birth }}</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-4>血型</ion-col>
+						<ion-col col-8>{{ info.blood }}</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-6>緊急聯絡人</ion-col>
+						<ion-col col-6>{{ info.emergePerson }}</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-6>緊急聯絡電話</ion-col>
+						<ion-col col-6>{{ info.emergePhone }}</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-4>簡單病史</ion-col>
+						<ion-col col-8>{{ info.sick }}</ion-col>
+					</ion-row>
+				</ion-grid>
+				<ion-item>
+					<button *ngIf="edit_btn" ion-button (click)="edit()" item-right block>
+						<ion-icon name="md-create"></ion-icon>修改資料
+					</button>
+					<button *ngIf="detail_btn" ion-button icon-only (click)="show()" item-right>
+						<ion-icon name="md-arrow-dropup-circle"></ion-icon>
+					</button>
+				</ion-item>
+			</div>
+		</ion-item>
+	</ion-list>
+
+	<ion-item>
+		<p>身體狀況</p>
+			<button ion-button icon-start item-right (click)="add()"><ion-icon name="md-add-circle"></ion-icon>新增紀錄</button>
+	</ion-item>
+	<!-- 月份下拉選單 -->
+	<ion-list>
+		<ion-item>
+			<ion-label>月份</ion-label>
+			<ion-select [(ngModel)]="month">
+			<ion-option value="1">1月</ion-option>
+			<ion-option value="2">2月</ion-option>
+			<ion-option value="3">3月</ion-option>
+			<ion-option value="4">4月</ion-option>
+			<ion-option value="5">5月</ion-option>
+			<ion-option value="6">6月</ion-option>
+			<ion-option value="7">7月</ion-option>
+			<ion-option value="8">8月</ion-option>
+			<ion-option value="9">9月</ion-option>
+			<ion-option value="10">10月</ion-option>
+			<ion-option value="11">11月</ion-option>
+			<ion-option value="12">12月</ion-option>
+			</ion-select>
+		</ion-item>
+	</ion-list>
+
+<!-- 紀錄顯示 -->
+	
+	<ion-card *ngFor="let record of recordList; let i = index;">
+		<ion-card-header>
+			{{ record.time | date:'yyyy/MM/dd HH:mm' }}	
+			<!-- 記錄時間 -->
+		</ion-card-header>
+		<ion-card-content>
+			{{ record.content }}
+			<!-- 紀錄內容 -->
+		</ion-card-content>
+		<div align="right">
+			<button ion-button small clear icon-only (click)="editRecord(i)"><ion-icon name="md-create"></ion-icon></button>
+	   	<button ion-button small clear icon-only (click)="delete(i)"><ion-icon name="md-trash"></ion-icon></button>
+		</div>
+	</ion-card>
+</ion-content>

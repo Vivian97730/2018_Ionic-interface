@@ -1,0 +1,91 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>提醒設定</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<div style="text-align: center;" *ngIf="new_btn">
+		<button type="submit" (click)="show_form()" ion-button>新增	</button>
+	</div>
+	<div *ngIf="new">
+		<form>
+			<ion-list>
+				<ion-item item-center>
+				  <ion-label stacked>標題</ion-label>
+						<ion-input  [(ngModel)]="thing" name="thing" type="text" placeholder="吃藥、做復健..." required></ion-input>
+				</ion-item>
+
+				<ion-item item-center>
+					<ion-label stacked>時間設定</ion-label>	
+						<ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="time" name="time" required></ion-datetime>
+				</ion-item>
+				<div>
+					<ion-item item-center>
+					<ion-label>禮拜一</ion-label>
+							<ion-checkbox  [(ngModel)]="monday" name="monday"></ion-checkbox>
+					</ion-item>
+
+					<ion-item item-center>
+					<ion-label>禮拜二</ion-label>
+							<ion-checkbox  [(ngModel)]="tuesday" name="tuesday"></ion-checkbox>
+					</ion-item>
+
+					<ion-item item-center>
+					<ion-label>禮拜三</ion-label>
+							<ion-checkbox  [(ngModel)]="wednesday" name="wednesday"></ion-checkbox>
+					</ion-item>
+
+					<ion-item item-center>
+					<ion-label>禮拜四</ion-label>
+							<ion-checkbox [(ngModel)]="thursday" name="thursday"></ion-checkbox>
+					</ion-item>
+
+					<ion-item item-center>
+					<ion-label>禮拜五</ion-label>
+							<ion-checkbox [(ngModel)]="friday" name="friday"></ion-checkbox>
+					</ion-item>
+
+					<ion-item item-center>
+					<ion-label>禮拜六</ion-label>
+							<ion-checkbox  [(ngModel)]="saturday" name="saturday"></ion-checkbox>
+					</ion-item>
+
+					<ion-item item-center>
+					<ion-label>禮拜日</ion-label>
+							<ion-checkbox [(ngModel)]="sunday" name="sunday"></ion-checkbox>
+					</ion-item>
+					
+					<div style="text-align: center">
+						<button ion-button color="light" (click)="back()">取消</button>
+						<button type="submit" (click)="check_form()" ion-button>完成</button>
+					</div>
+				</div>
+			</ion-list>
+		</form>
+	</div>
+	
+	<ion-card *ngIf="card">
+		<ion-fab mini right>
+			<button ion-fab mini><ion-icon name="md-trash"></ion-icon></button>
+			<button ion-fab mini (click)="edit_form()"><ion-icon name="md-create" ></ion-icon></button>
+	  	</ion-fab>
+		<ion-card-header>
+			吃藥
+			<!-- 日期{{date}}	 -->
+			<!-- 記錄時間 -->
+		</ion-card-header>
+		<ion-card-content>
+			每天早上10點
+			<!-- 內容{{content}} -->
+			<!-- 紀錄內容 -->
+		</ion-card-content>
+	</ion-card>
+	
+
+	
+</ion-content>
